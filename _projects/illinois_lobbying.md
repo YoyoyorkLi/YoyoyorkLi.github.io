@@ -21,7 +21,6 @@ Taxpayer-funded lobbying in Illinois is on the rise, and it is important to keep
 
 <br><br>
 
-
 <div class="left">
 {% include elements/button.html link="https://data.illinois.gov/browse?sortBy=last_modified&pageSize=20&category=Government+and+Public+Employees&page=1" text="The Data" %}
 </div>
