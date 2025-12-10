@@ -23,12 +23,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Tags">
-  <meta property="og:description" content="Exploring data science, machine learning and its real world applications!">
-  <meta property="og:image" content="/assets/pngs/me.png">
+  <meta property="og:title" content="Interactive Lobbying Entities in Illinois">
+  <meta property="og:description" content="Lobbying Entities in the State of Illinois and Their Clients!">
+  <meta property="og:image" content="assets/pngs/lobby.png">
 
-  <title>Tags</title>
-  <meta name="description" content="Exploring data science, machine learning and its real world applications!">
+  <title>Interactive Lobbying Entities in Illinois</title>
+  <meta name="description" content="Lobbying Entities in the State of Illinois and Their Clients!">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -61,9 +61,9 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
 
-      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
 
       <a class="nav-item nav-link " href="/about/">About</a>
 
@@ -75,27 +75,26 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <!-- Collect tags from all posts --><!-- List tags & related posts -->
+  <h1 id="interactive-lobbying-entities-in-illinois">Interactive Lobbying Entities in Illinois</h1>
+<p><br /></p>
 
-<div class="py-3">
-  <h4 id="blogging">Blogging</h4>
-  <ol>
-  <a href="/blog/hello-blog-world"><li>The Hello World of Blogs</li></a>
-    <small class="text-muted"> - 22 August 2022</small>
-    <br/>
-  </ol>
-</div>
-<hr class="bg-light">
+<p>Taxpayer-funded lobbying in Illinois is on the rise, and it is important to keep track of the trends and patterns! This interactive chart highlights the top five business entities in a selected city in the state of Illinois and year, ranked by the number of unique clients they served. Clicking on an entity reveals a second chart that displays how its client count has changed across years.</p>
 
-<div class="py-3">
-  <h4 id="technology">Technology</h4>
-  <ol>
-  <a href="/blog/hello-blog-world"><li>The Hello World of Blogs</li></a>
-    <small class="text-muted"> - 22 August 2022</small>
-    <br/>
-  </ol>
+<vegachart schema-url="/assets/json/illinois_clients.json" style="width: 100%"></vegachart>
+
+<p><br /><br /></p>
+
+<div class="left">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/bfro_reports_fall2022.csv">
+  The Data
+</a>
 </div>
-<hr class="bg-light">
+
+<div class="right">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/YoyoyorkLi/YoyoyorkLi.github.io/blob/main/python_notebooks/bigfoot.ipynb">
+  The Analysis
+</a>
+</div>
 
 </div>
   </main>
@@ -130,6 +129,17 @@
 
 </footer>
 
+
+<!-- Custom page specific js files -->
+  
+    <script src='/assets/js/vega.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-lite.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-embed.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/justcharts.js' type="text/javascript"></script>
+  
 
 
 
