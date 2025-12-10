@@ -23,9 +23,9 @@ Taxpayer-funded lobbying in Illinois is on the rise, and it is important to keep
 
 
 <div class="left">
-{% include elements/button.html link="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/bfro_reports_fall2022.csv" text="The Data" %}
+{% include elements/button.html link="https://data.illinois.gov/browse?sortBy=last_modified&pageSize=20&category=Government+and+Public+Employees&page=1" text="The Data" %}
 </div>
 
 <div class="right">
-{% include elements/button.html link="https://github.com/YoyoyorkLi/YoyoyorkLi.github.io/blob/main/python_notebooks/bigfoot.ipynb" text="The Analysis" %}
+{% include elements/button.html link="https://github.com/YoyoyorkLi/YoyoyorkLi.github.io/blob/main/python_notebooks/illinois_lobbying.ipynb" text="The Analysis" %}
 </div>
