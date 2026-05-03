@@ -24,3 +24,9 @@
 html[data-theme="dark"] .bio-text {
   color: #ffffff !important; 
 }
+
+/* Footer Social Icons */
+footer a {
+  font-size: 1.38rem; /* Makes the icons larger */
+  margin: 0 10px;    /* Adds a little extra breathing room between them */
+}

@@ -479,3 +479,6 @@ body { font-family: "Poppins", sans-serif; }
 @media (min-width: 768px) { .bio-text { font-size: 1.3rem; /* Bumps the size back up for laptops and monitors */ } }
 /* 2. Dark Mode */
 html[data-theme="dark"] .bio-text { color: #ffffff !important; }
+
+/* Footer Social Icons */
+footer a { font-size: 1.38rem; /* Makes the icons larger */ margin: 0 10px; /* Adds a little extra breathing room between them */ }
