@@ -1,3 +1,16 @@
 ---
 ---
 @import "portfolYOU";
+
+/* Custom Homepage Styles */
+
+/* 1. Light Mode (Default) */
+.bio-text {
+  color: #212529; /* A nice, readable dark gray/black */
+  font-size: 1.25rem;
+}
+
+/* 2. Dark Mode */
+html[data-theme="dark"] .bio-text {
+  color: #ffffff !important; /* Pure white */
+}
