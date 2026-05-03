@@ -2,49 +2,61 @@
 ---
 @import "portfolYOU";
 
-/* Custom Homepage Styles */
+/* =========================================
+   Custom Homepage Styles
+   ========================================= */
 
-/* Bio Text: Phone Sized (Default Light Mode) */
+/* --- Bio Text --- */
+
+/* 1. Phone Sized (Default Light Mode) */
 .bio-text {
   color: #212529; 
-  font-size: 1rem; /* Shrinks the text for mobile */
+  font-size: 1rem; 
 }
 
-/* Bio Text: Desktop Sized */
+/* 2. Desktop Sized */
 @media (min-width: 768px) {
   .bio-text {
-    font-size: 1.3rem; /* Bumps the size back up for laptops and monitors */
+    font-size: 1.3rem; 
   }
 }
 
-/* Bio Text: Dark Mode */
+/* 3. Dark Mode Override */
 html[data-theme="dark"] .bio-text {
   color: #ffffff !important; 
 }
 
+
+/* --- Footer Settings --- */
+
 /* Footer Social Icons */
 footer a {
-  font-size: 1.38rem; /* Makes the icons larger */
-  margin: 0 10px;    /* Adds a little extra breathing room between them */
+  font-size: 1.38rem; 
+  margin: 0 10px;    
 }
 
-/* Hero Image Settings */
+
+/* --- Hero Image Settings --- */
 
 /* 1. Mobile Sized (Default) */
+/* This crops the image to focus on you so you don't look tiny on a phone */
 .hero-image {
   width: 100%;
-  height: 350px; /* Forces the image to be taller on phones */
-  object-fit: cover; /* Safely crops the wide edges instead of squishing */
-  object-position: 75% center; /* Keeps your face perfectly in frame */
+  height: 350px; 
+  object-fit: cover; 
+  object-position: 75% center; 
   border-radius: 15px;
   margin-bottom: 40px;
 }
 
 /* 2. Desktop Sized */
+/* This restores the wide landscape look and locks down the maximum size */
 @media (min-width: 768px) {
   .hero-image {
-    max-width: 800px;
-    height: auto; /* Restores the full wide landscape look */
+    width: 70%;         
+    max-width: 800px;   
+    height: auto; 
     max-height: 60vh;
+    object-position: center; 
   }
 }
