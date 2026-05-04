@@ -7,7 +7,10 @@
 ### Site Settings ###
 title: York Li
 description: >-
-                      Hi there! I am York Li. I am exploring data science, machine learning and its real world applications!
+                      Hi there! I am York Li. 
+                      I am exploring everything data science and its real world applications.
+                      Check out my projects, publications and experiences!
+
 baseurl: ""   # Change to empty quotes if you are hosting your site at <your-username>.github.io directly,
 #                                             otherwise will be hosted at <your-username>.github.io/{{base_url}}
 repository: YoyoyorkLi                  # Change to <your-username> for github OR, if that doesn't work <your-username>/<your-username>.github.io (or remove it if you don't need remote projects) -- for example, I would put "jnaiman" without the quotes after the ":" here
