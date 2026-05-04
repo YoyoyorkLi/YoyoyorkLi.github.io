@@ -18,6 +18,9 @@
 @media (min-width: 768px) {
   .bio-text {
     font-size: 1.3rem; 
+    max-width: 700px; /* Constrains the width so it doesn't stretch too far */
+    margin: 0 auto;   /* Keeps the text block perfectly centered */
+    line-height: 1.6; /* Adds a bit of breathing room between the lines */
   }
 }
 

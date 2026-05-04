@@ -475,7 +475,7 @@ body { font-family: "Poppins", sans-serif; }
 .bio-text { color: #212529; font-size: 1rem; }
 
 /* 2. Desktop Sized */
-@media (min-width: 768px) { .bio-text { font-size: 1.3rem; } }
+@media (min-width: 768px) { .bio-text { font-size: 1.3rem; max-width: 700px; /* Constrains the width so it doesn't stretch too far */ margin: 0 auto; /* Keeps the text block perfectly centered */ line-height: 1.6; /* Adds a bit of breathing room between the lines */ } }
 /* 3. Dark Mode Override */
 html[data-theme="dark"] .bio-text { color: #ffffff !important; }
 
