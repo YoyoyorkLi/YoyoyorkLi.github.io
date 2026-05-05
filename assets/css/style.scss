@@ -63,3 +63,61 @@ footer a {
     object-position: center; 
   }
 }
+
+/* --- Vega Chart Tooltip Fix --- */
+
+/* 1. Force the tooltip background and text to stay light */
+#vg-tooltip-element, 
+.vg-tooltip {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+/* 2. Remove the dark theme's row striping */
+html[data-theme="dark"] #vg-tooltip-element table tr,
+html[data-theme="dark"] .vg-tooltip table tr {
+  background-color: transparent !important;
+}
+
+/* 3. Restore the subtle, light-mode row striping */
+html[data-theme="dark"] #vg-tooltip-element table tr:nth-child(even),
+html[data-theme="dark"] .vg-tooltip table tr:nth-child(even) {
+  background-color: #f4f4f4 !important;
+}
+
+/* 4. Force the text inside the table to stay dark */
+html[data-theme="dark"] #vg-tooltip-element table td,
+html[data-theme="dark"] .vg-tooltip table td,
+html[data-theme="dark"] #vg-tooltip-element table th,
+html[data-theme="dark"] .vg-tooltip table th {
+  color: #212529 !important;
+}
+
+/* --- Universal Project Cards (No Image Cropping) --- */
+
+/* 1. Force the invisible <a> link wrapper to stretch to the bottom of the grid */
+.row > [class*="col-"] > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 2. Force the card to expand and fill that newly stretched link */
+.card {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Turn the inside of the card into a flexible column */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Tells the body block to stretch to fill the card */
+}
+
+/* 4. Tell the description text to act like a spring, pushing the tags to the bottom */
+.card-body p {
+  flex-grow: 1; 
+  margin-bottom: 1.5rem; 
+}
