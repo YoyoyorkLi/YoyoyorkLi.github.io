@@ -150,6 +150,13 @@
 </footer>
 
 
+<script>
+  // Override portfolYOU's default light mode for brand new visitors
+  if (localStorage.getItem("theme") === null) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+</script>
 
   
   <!-- GitHub Buttons -->
