@@ -1,19 +1,14 @@
 ---
 layout: page
-title: About
+title: Experiences
 permalink: /about/
 weight: 3
 ---
 
-# **About Me**
-
-Hi, I am **{{ site.author.name }}**,<br> I am a corgi!
-
 <div class="row">
-{% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
-{% include about/skills.html title="Other Skills" source=site.data.other-skills %}
+  {% include about/timeline.html title="Professional Experiences" source=site.data.experience %}
 </div>
 
-<div class="row">
-{% include about/timeline.html %}
+<div class="row mt-4">
+  {% include about/timeline.html title="Education" source=site.data.education %}
 </div>

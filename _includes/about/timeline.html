@@ -1,11 +1,41 @@
 <div class="col mt-4">
+  
+  <h2 class="mb-4">{{ include.title }}</h2>
+  
   <div class="timeline-body bg-themed">
-    {% for item in site.data.timeline %}
+    {% for item in include.source %}
       <div class="timeline-item">
         <div class="content">
-          <h2>{{ item.title }}</h2>
-          <h6 class="date">{{ item.from }} — {{ item.to }}</h6>
+          
+          <div class="d-flex align-items-start mb-3">
+            
+            {% if item.logo %}
+              <div style="flex-shrink: 0; width: 65px; height: 65px; margin-right: 18px; background-color: #ffffff; border-radius: 8px; padding: 5px; display: flex; align-items: center; justify-content: center;">
+                <img src="{{ item.logo | relative_url }}" alt="logo" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+              </div>
+            {% endif %}
+            
+            <div style="flex-grow: 1;">
+              <h3 class="mb-0" style="line-height: 1.2;">{{ item.title }}</h3>
+              {% if item.company %}
+                <h5 class="mb-0 mt-2">
+                  {% if item.url %}
+                    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.company }}</a>
+                  {% else %}
+                    {{ item.company }}
+                  {% endif %}
+                </h5>
+              {% endif %}
+            </div>
+            
+          </div>
+          
+          <h6 class="date">
+            {% if item.subtitle %}{{ item.subtitle }}{% else %}{{ item.from }} — {{ item.to }}{% endif %}
+          </h6>
+          
           <p>{{ item.description }}</p>
+          
         </div>
       </div>
     {% endfor %}

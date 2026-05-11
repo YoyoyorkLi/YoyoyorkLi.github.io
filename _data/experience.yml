@@ -1,0 +1,13 @@
+- title: "Data Scientist Intern"
+  company: "Pandora Bio"
+  url: "https://pandorabio.com" 
+  logo: "/assets/pngs/pandora_logo.png"
+  subtitle: "Jan 2026 — April 2026"
+  description: "<ul style='padding-left: 20px; margin-bottom: 0;'><li>Cleaned, joined, and engineered features from 10+ datasets using Python.</li><li>Built mixed-effect regression models in R and leveraged AWS EC2 to execute Hugging Face models on ~6,000 audio files.</li><li>Co-authored peer-reviewed papers currently under review in Affective Science and JMIR.</li></ul>"
+
+- title: "Data Science/Student Ambassador Intern"
+  company: "Pandora Bio"
+  url: "https://pandorabio.com" 
+  logo: "/assets/pngs/pandora_logo.png"
+  subtitle: "May 2024 — May 2025"
+  description: "<ul style='padding-left: 20px; margin-bottom: 0;'><li>Optimized and maintained 10+ R Studio scripts, enhancing internal data analysis dashboards.</li><li>Conducted comprehensive research to improve app user experience.</li><li>Collaborated on new features adopted by the dev team for 500+ users.</li></ul>"
