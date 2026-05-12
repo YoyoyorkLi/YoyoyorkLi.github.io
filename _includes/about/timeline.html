@@ -16,7 +16,7 @@
             {% endif %}
             
             <div style="flex-grow: 1;">
-              <h3 class="mb-0" style="line-height: 1.2;">{{ item.title }}</h3>
+              <h4 class="mb-0" style="line-height: 1.2;">{{ item.title }}</h4>
               {% if item.company %}
                 <h5 class="mb-0 mt-2">
                   {% if item.url %}
@@ -30,7 +30,7 @@
             
           </div>
           
-          <h6 class="date">
+          <h6 class="date" style="margin-bottom: 15px;">
             {% if item.subtitle %}{{ item.subtitle }}{% else %}{{ item.from }} — {{ item.to }}{% endif %}
           </h6>
           
