@@ -3,15 +3,14 @@ title: "Low-Burden Digital Phenotyping of Affective Risk: Positive Emoji Usage, 
 status: "Under Review at"
 journal: "Affective Science"
 journal_url: "https://link.springer.com/journal/42761"
-tags: [Digital Phenotyping, Machine Learning]
+tags: [Machine Learning, Digital Phenotyping, ]
 ---
 
 ### Overview
-*(Paste your actual abstract here! Give the recruiter or hiring manager a high-level summary of what the paper is about, the methodology used, and the clinical or statistical significance of your findings regarding college student mental health.)*
+This study utilized the Meet Pandora smartphone app to track daily affect and passive behavioral markers in college students. We found that low-burden digital signals, specifically positive emoji usage, outperformed traditional questionnaires in predicting psychological flourishing and lower symptom burden.
 
-### My Technical Contributions
-While collaborating with PhD researchers to translate these statistical findings into academic literature, I led the data engineering and modeling processes:
+### My Contributions
+As a co-author, I collaborated with PhD researchers to translate raw study data into publication-ready statistical reports:
 
-* **Audio Feature Extraction:** Leveraged AWS EC2 to execute state-of-the-art Hugging Face models, efficiently extracting speech rate and acoustic features from approximately 6,000 raw audio files.
-* **Data Wrangling:** Cleaned, joined, and engineered complex features from 10+ distinct datasets using Python (Pandas/NumPy) to construct the final analysis-ready dataset.
-* **Statistical Modeling:** Built and optimized mixed-effect regression models in R to identify strong statistical trends between digital phenotyping markers (emoji usage, speech rate, sleep) and affective risk.
+* **Data Analysis:** Developed R scripts to process and summarize participant metadata, contributing a clean summary for the study's demographic profiling.
+* **Quality Assurance:** Conducted technical reviews of the manuscript prior to journal submission.
