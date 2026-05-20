@@ -11,7 +11,7 @@ Using the Meet Pandora smartphone app and tracking daily affect and passive beha
 <br><br>
 ### My Role: Co-Author
 
-
 * **Data Analysis:** Developed R scripts to process and summarize participant metadata, contributing a clean summary for the study's demographic profiling.
 
-* **Quality Assurance:** Conducted technical reviews of the manuscript prior to journal submission.
+* **Review:** Conducted technical reviews of the manuscript prior to journal submission.
+<br><br>

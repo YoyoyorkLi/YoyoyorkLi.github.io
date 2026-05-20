@@ -179,15 +179,20 @@ html[data-theme="dark"] .vg-tooltip table th {
 
 }
 /* =========================================
-   Remove Page Load Animations
+   Remove WOW.js Page Load Animations
    ========================================= */
 
+.wow,
 .animated, 
 .zoomIn, 
 .fadeIn, 
 .fadeInUp {
+  /* Stop the animation */
   animation: none !important;
   transition: none !important;
   transform: none !important;
+  
+  /* Force WOW.js to reveal the content immediately */
+  visibility: visible !important;
   opacity: 1 !important;
 }
