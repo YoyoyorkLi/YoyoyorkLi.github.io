@@ -1,13 +1,10 @@
 ---
 title: "Low-Burden Digital Phenotyping of Affective Risk: Positive Emoji Usage, Speech Rate, and Sleep Relate to College Student Mental Health"
-journal: "Under Review at Affective Science"
+status: "Under Review at"
+journal: "Affective Science"
+journal_url: "https://link.springer.com/journal/42761"
 tags: [Digital Phenotyping, Machine Learning]
-style: fill
-color: primary
-cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
 ---
-
-> **Status:** Currently Under Review at *Affective Science*
 
 ### Overview
 *(Paste your actual abstract here! Give the recruiter or hiring manager a high-level summary of what the paper is about, the methodology used, and the clinical or statistical significance of your findings regarding college student mental health.)*
