@@ -178,3 +178,16 @@ html[data-theme="dark"] .vg-tooltip table th {
   }
 
 }
+/* =========================================
+   Remove Page Load Animations
+   ========================================= */
+
+.animated, 
+.zoomIn, 
+.fadeIn, 
+.fadeInUp {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
