@@ -507,3 +507,11 @@ html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #v
 
 /* 4. Push ONLY the final item (the blue tags) to the bottom */
 .card-body > *:last-child { margin-top: auto; margin-bottom: 0; }
+
+/* --- Mobile View Adjustments --- */
+@media (max-width: 767px) { /* Shrinks the massive card titles on the publication grid */
+  .card .card-title, h2.post-title, h3.post-title { font-size: 1.25rem !important; line-height: 1.4 !important; font-weight: 700 !important; }
+  /* Shrinks the main headers inside individual post/experience pages */
+  h1, .h1 { font-size: 1.75rem !important; line-height: 1.3 !important; }
+  h2, .h2 { font-size: 1.45rem !important; }
+  h3, .h3 { font-size: 1.25rem !important; } }
