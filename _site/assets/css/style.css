@@ -525,3 +525,5 @@ html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #v
   .card-body .badge, .card-body .tag { font-size: 0.75rem !important; padding: 0.35em 0.5em !important; margin-bottom: 0.25rem !important; }
   .card i[class*="fa-"], .card i.fas, .card i.fab { font-size: 2.2rem !important; margin-bottom: 10px !important; }
   .card img { max-height: 140px !important; object-fit: cover !important; } }
+/* ========================================= Remove Page Load Animations ========================================= */
+.animated, .zoomIn, .fadeIn, .fadeInUp { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
