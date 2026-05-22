@@ -7,14 +7,11 @@
    ========================================= */
 
 /* --- Bio Text --- */
-
-/* 1. Phone Sized (Default Light Mode) */
 .bio-text {
   color: #212529; 
   font-size: 1rem; 
 }
 
-/* 2. Desktop Sized */
 @media (min-width: 768px) {
   .bio-text {
     font-size: 1.3rem; 
@@ -24,20 +21,17 @@
   }
 }
 
-/* 3. Dark Mode Override */
 html[data-theme="dark"] .bio-text {
   color: #ffffff !important; 
 }
 
 /* --- Footer Settings --- */
-
 footer a {
   font-size: 1.38rem; 
   margin: 0 10px;    
 }
 
 /* --- Hero Image Settings --- */
-
 .hero-image {
   width: 100%;
   height: 350px; 
@@ -58,7 +52,6 @@ footer a {
 }
 
 /* --- Vega Chart Tooltip Fix --- */
-
 #vg-tooltip-element, 
 .vg-tooltip {
   background-color: #ffffff !important;
@@ -83,28 +76,23 @@ html[data-theme="dark"] .vg-tooltip table th {
 }
 
 /* --- Universal Project Cards --- */
-
-/* 1. If cards are wrapped in a link, force the link to stretch */
 .row [class*="col"] > a {
   display: block;
   height: 100%;
 }
 
-/* 2. Force the card to fill the column height */
 .card {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* 3. Force the card body to stretch and fill the empty space */
 .card-body {
   display: flex;
   flex-direction: column;
   flex-grow: 1; 
 }
 
-/* 4. Push ONLY the final item (the blue tags) to the bottom */
 .card-body > *:last-child {
   margin-top: auto;
   margin-bottom: 0;
@@ -177,18 +165,33 @@ html[data-theme="dark"] .vg-tooltip table th {
     object-fit: cover !important;
   }
 
-  /* 4. Light/Dark Mode Toggle Blue Bar Fix */
-  .navbar-nav .nav-item:last-child,
-  .navbar-nav .nav-item:last-child .nav-link,
+  /* 4. Light/Dark Mode Toggle Blue Bar Fix (Isolated Rules) */
+  
+  /* Force kills borders on the exact list item holding the toggle */
+  .navbar-nav .nav-item:last-child {
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Force kills borders on the toggle link itself */
   #theme-toggle {
+    border: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
     text-decoration: none !important;
     background: transparent !important;
   }
+
+  /* Force kills pseudo-element underlines (often used for menu animations) */
+  .navbar-nav .nav-item:last-child::after,
+  .navbar-nav .nav-item:last-child::before,
+  .navbar-nav .nav-item:last-child .nav-link::after,
   .navbar-nav .nav-item:last-child .nav-link::before,
-  .navbar-nav .nav-item:last-child .nav-link::after {
+  #theme-toggle::after,
+  #theme-toggle::before {
     display: none !important;
+    content: none !important;
   }
 
 }
@@ -196,18 +199,14 @@ html[data-theme="dark"] .vg-tooltip table th {
 /* =========================================
    Remove WOW.js Page Load Animations
    ========================================= */
-
 .wow,
 .animated, 
 .zoomIn, 
 .fadeIn, 
 .fadeInUp {
-  /* Stop the animation */
   animation: none !important;
   transition: none !important;
   transform: none !important;
-  
-  /* Force WOW.js to reveal the content immediately */
   visibility: visible !important;
   opacity: 1 !important;
 }
