@@ -3,7 +3,7 @@ title: "Low-Burden Digital Phenotyping of Affective Risk: Positive Emoji Usage, 
 status: "Under Review at"
 journal: "Affective Science"
 journal_url: "https://link.springer.com/journal/42761"
-tags: [Co-Author ]
+tags: [Co-Author]
 ---
 
 ### Overview
