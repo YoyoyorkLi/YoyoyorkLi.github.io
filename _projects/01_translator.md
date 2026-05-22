@@ -64,10 +64,10 @@ In collaboration with the [LAS Global Leaders Program](https://las.illinois.edu/
 
 ### Technical Implementation
 
-Because this app needed to be freely accessible to teachers and students, deploying massive, computationally expensive language models was not an option. The architecture was specifically designed to be lightweight, fast, and capable of running efficiently on free-tier CPU servers.
+* **Interface:** Built a light-weight front-end using **Gradio**, allowing users to easily switch input languages, record directly from their microphone, or upload audio files.
 
-* **User Interface:** Built a clean, responsive front-end using **Gradio**, allowing users to easily switch input languages, record directly from their microphone, or upload pre-recorded audio files.
-* **Audio Transcription:** Leveraged **`faster-whisper`** for speech-to-text. By using the `small` model with `int8` quantization, the application drastically reduces memory usage and latency, allowing it to perform fast inference strictly on a CPU.
-* **Real-Time Translation:** Integrated the **`deep_translator`** library (Google Translator API) to handle the heavy lifting of routing the transcribed text into the two target languages simultaneously.
-* **State Management:** Implemented asynchronous state tracking to maintain a running log of the conversation history across all three languages without breaking the user experience.
-* **Deployment:** Hosted the live application via **Hugging Face Spaces**, utilizing a completely free deployment pipeline to deliver the tool to end-users without ongoing server costs.
+* **Transcription:** Leveraged **`faster-whisper`** for speech-to-text. By using the `small` model with `int8` quantization, the application runs on lower memory usage and latency, allowing it to perform fast inference on a CPU.
+
+* **Translation:** Integrated the **`deep_translator`** to transcribe text into the two target languages simultaneously while maintaining a log of the conversation across all three languages.
+
+* **Deployment:** Hosted the live application via **Hugging Face Spaces**, utilizing a completely free deployment pipeline to deliver the tool to end-users without costs.

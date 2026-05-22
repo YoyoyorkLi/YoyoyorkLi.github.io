@@ -125,14 +125,19 @@
 
 <h3 id="technical-implementation">Technical Implementation</h3>
 
-<p>Because this app needed to be freely accessible to teachers and students, deploying massive, computationally expensive language models was not an option. The architecture was specifically designed to be lightweight, fast, and capable of running efficiently on free-tier CPU servers.</p>
-
 <ul>
-  <li><strong>User Interface:</strong> Built a clean, responsive front-end using <strong>Gradio</strong>, allowing users to easily switch input languages, record directly from their microphone, or upload pre-recorded audio files.</li>
-  <li><strong>Audio Transcription:</strong> Leveraged <strong><code class="language-plaintext highlighter-rouge">faster-whisper</code></strong> for speech-to-text. By using the <code class="language-plaintext highlighter-rouge">small</code> model with <code class="language-plaintext highlighter-rouge">int8</code> quantization, the application drastically reduces memory usage and latency, allowing it to perform fast inference strictly on a CPU.</li>
-  <li><strong>Real-Time Translation:</strong> Integrated the <strong><code class="language-plaintext highlighter-rouge">deep_translator</code></strong> library (Google Translator API) to handle the heavy lifting of routing the transcribed text into the two target languages simultaneously.</li>
-  <li><strong>State Management:</strong> Implemented asynchronous state tracking to maintain a running log of the conversation history across all three languages without breaking the user experience.</li>
-  <li><strong>Deployment:</strong> Hosted the live application via <strong>Hugging Face Spaces</strong>, utilizing a completely free deployment pipeline to deliver the tool to end-users without ongoing server costs.</li>
+  <li>
+    <p><strong>Interface:</strong> Built a light-weight front-end using <strong>Gradio</strong>, allowing users to easily switch input languages, record directly from their microphone, or upload audio files.</p>
+  </li>
+  <li>
+    <p><strong>Transcription:</strong> Leveraged <strong><code class="language-plaintext highlighter-rouge">faster-whisper</code></strong> for speech-to-text. By using the <code class="language-plaintext highlighter-rouge">small</code> model with <code class="language-plaintext highlighter-rouge">int8</code> quantization, the application runs on lower memory usage and latency, allowing it to perform fast inference on a CPU.</p>
+  </li>
+  <li>
+    <p><strong>Translation:</strong> Integrated the <strong><code class="language-plaintext highlighter-rouge">deep_translator</code></strong> to transcribe text into the two target languages simultaneously while maintaining a log of the conversation across all three languages.</p>
+  </li>
+  <li>
+    <p><strong>Deployment:</strong> Hosted the live application via <strong>Hugging Face Spaces</strong>, utilizing a completely free deployment pipeline to deliver the tool to end-users without costs.</p>
+  </li>
 </ul>
 
 </div>
