@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+  Updates for JPN Fall 2024
+  FALL2024ID47147
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI-Powered Multi-Lingual Classroom Translator">
+  <meta property="og:description" content="A free audio transcription and translation web app built for immigrant students in Tijuana.">
+  <meta property="og:image" content="assets/pngs/whisper.png">
+
+  <title>AI-Powered Multi-Lingual Classroom Translator</title>
+  <meta name="description" content="A free audio transcription and translation web app built for immigrant students in Tijuana.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>York Li</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Publications</a>
+
+      <a class="nav-item nav-link " href="/about/">Experiences</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h3 id="overview">Overview</h3>
+
+<hr />
+<p>In collaboration with the <a href="https://las.illinois.edu/resources/international/globallearning/leaders">LAS Global Leaders Program</a>, I worked with Tijuana’s education department to support immigrant middle school students. To help bridge language barriers between students and faculty, I developed and deployed a free AI-powered translation web app that transcribes and translates live or recorded audio between English, Spanish, and Haitian Creole.</p>
+
+<p><br /></p>
+<h3 id="try-the-app">Try the App!</h3>
+
+<p><em>(If the Space is sleeping, click  “Restart Space” to wake it up!)</em></p>
+
+<div style="width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #888; margin-bottom: 30px;">
+  <iframe id="gradio-app" src="" frameborder="0" width="100%" height="750" style="border:none;"></iframe>
+</div>
+
+<script>
+  // Grab the iframe and your app's base URL
+  const iframe = document.getElementById('gradio-app');
+  const baseUrl = "https://yoyoyork-on-demand-spanish-translator.hf.space";
+  
+  // Function to check your site's theme and update the iframe
+  function syncTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const targetUrl = isDark ? baseUrl + "/?__theme=dark" : baseUrl + "/?__theme=light";
+    
+    // Only reload the iframe if the URL actually needs to change
+    if (iframe.src !== targetUrl) {
+      iframe.src = targetUrl;
+    }
+  }
+
+  // 1. Set the correct theme immediately when the page loads
+  syncTheme();
+
+  // 2. The Bulletproof Watcher: Stares directly at the HTML tag for theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        syncTheme();
+      }
+    });
+  });
+
+  // Start watching the <html> tag for attribute changes
+  observer.observe(document.documentElement, { attributes: true });
+</script>
+
+<hr />
+
+<h3 id="technical-implementation">Technical Implementation</h3>
+
+<p>Because this app needed to be freely accessible to teachers and students, deploying massive, computationally expensive language models was not an option. The architecture was specifically designed to be lightweight, fast, and capable of running efficiently on free-tier CPU servers.</p>
+
+<ul>
+  <li><strong>User Interface:</strong> Built a clean, responsive front-end using <strong>Gradio</strong>, allowing users to easily switch input languages, record directly from their microphone, or upload pre-recorded audio files.</li>
+  <li><strong>Audio Transcription:</strong> Leveraged <strong><code class="language-plaintext highlighter-rouge">faster-whisper</code></strong> for speech-to-text. By using the <code class="language-plaintext highlighter-rouge">small</code> model with <code class="language-plaintext highlighter-rouge">int8</code> quantization, the application drastically reduces memory usage and latency, allowing it to perform fast inference strictly on a CPU.</li>
+  <li><strong>Real-Time Translation:</strong> Integrated the <strong><code class="language-plaintext highlighter-rouge">deep_translator</code></strong> library (Google Translator API) to handle the heavy lifting of routing the transcribed text into the two target languages simultaneously.</li>
+  <li><strong>State Management:</strong> Implemented asynchronous state tracking to maintain a running log of the conversation history across all three languages without breaking the user experience.</li>
+  <li><strong>Deployment:</strong> Hosted the live application via <strong>Hugging Face Spaces</strong>, utilizing a completely free deployment pipeline to deliver the tool to end-users without ongoing server costs.</li>
+</ul>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1" target="_blank" rel="noopener noreferrer" href="mailto:yorklirun@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1" target="_blank" rel="noopener noreferrer" href="https://www.github.com/YoyoyorkLi"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/york-li-1934a320a"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+  
+</footer>
+
+
+<script>
+  // Override portfolYOU's default light mode for brand new visitors
+  if (localStorage.getItem("theme") === null) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+</script>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+<!--
+end of checks! JPN
+-->
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

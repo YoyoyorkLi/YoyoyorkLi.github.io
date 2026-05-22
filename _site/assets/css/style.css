@@ -492,14 +492,15 @@ html[data-theme="dark"] #vg-tooltip-element table tr:nth-child(even), html[data-
 
 html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #vg-tooltip-element .markdown-body table:not(.highlight) th, .markdown-body html[data-theme="dark"] #vg-tooltip-element table:not(.highlight) th, html[data-theme="dark"] .vg-tooltip table td, html[data-theme="dark"] .vg-tooltip .markdown-body table:not(.highlight) th, .markdown-body html[data-theme="dark"] .vg-tooltip table:not(.highlight) th, html[data-theme="dark"] #vg-tooltip-element table th, html[data-theme="dark"] .vg-tooltip table th { color: #212529 !important; }
 
-/* --- Universal Project Cards --- */
-.row [class*="col"] > a { display: block; height: 100%; }
+/* --- Universal Project Cards (Minimalist & Safe) --- */
+/* 1. Tell the link wrapper to fill the natural Bootstrap column height */
+.row > [class*="col"] > a { display: block !important; height: 100% !important; text-decoration: none !important; }
 
-.card { height: 100%; display: flex; flex-direction: column; }
+/* 2. Tell the card to fill the link wrapper */
+.card { height: 100% !important; }
 
-.card-body { display: flex; flex-direction: column; flex-grow: 1; }
-
-.card-body > *:last-child { margin-top: auto; margin-bottom: 0; }
+/* 3. Lock the images so they perfectly align across the grid */
+.card img { width: 100% !important; height: 220px !important; object-fit: cover !important; object-position: center !important; }
 
 /* ========================================= Mobile View Adjustments (Phones Only) ========================================= */
 @media (max-width: 767px) { /* 1. Publication & General Headers */

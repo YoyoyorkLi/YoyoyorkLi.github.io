@@ -1,6 +1,6 @@
 ---
 name: Interactive Lobbying Entities in Illinois
-tools: [Python, HTML, Bqplot]
+tools: [Data Visualization, Interactivity]
 image: assets/pngs/lobby.png
 description: Lobbying Entities in the State of Illinois and Their Clients!
 custom_js:

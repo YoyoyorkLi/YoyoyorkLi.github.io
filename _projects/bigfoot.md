@@ -1,6 +1,6 @@
 ---
 name: Interactive Bigfoot Sighting Plot
-tools: [Python, HTML, JavaScript]
+tools: [Data Visualization, Interactivity]
 image: assets/pngs/bigfoot.png
 description: Bigfoot sightings in the U.S filtered by state, visibility and more!
 custom_js:
