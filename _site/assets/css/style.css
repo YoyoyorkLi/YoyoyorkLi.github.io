@@ -527,3 +527,10 @@ html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #v
   .card img { max-height: 140px !important; object-fit: cover !important; } }
 /* ========================================= Remove WOW.js Page Load Animations ========================================= */
 .wow, .animated, .zoomIn, .fadeIn, .fadeInUp { /* Stop the animation */ animation: none !important; transition: none !important; transform: none !important; /* Force WOW.js to reveal the content immediately */ visibility: visible !important; opacity: 1 !important; }
+
+/* --- NEW: Light/Dark Mode Toggle Fix --- */
+/* Targets the theme toggle link and strips away the menu styling */
+#theme-toggle, .nav-item:last-child .nav-link { border-bottom: none !important; box-shadow: none !important; background: transparent !important; display: inline-block !important; width: auto !important; font-size: 1.5rem !important; /* Makes the emoji slightly larger and easier to tap */ padding-left: 0 !important; margin-top: 10px !important; }
+
+/* Removes any borders from the list item container holding the toggle */
+.nav-item:has(#theme-toggle) { border: none !important; }
