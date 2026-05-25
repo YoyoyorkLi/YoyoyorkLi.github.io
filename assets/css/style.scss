@@ -129,7 +129,7 @@ html[data-theme="dark"] .vg-tooltip table th {
     font-size: 1.2rem !important;
   }
 
-  /* 3. Project Card Text Scaling */
+  /* 3. Project Card Text Scaling & Safe Image Fix */
   .card {
     margin-bottom: 1rem !important;
   }
@@ -154,9 +154,15 @@ html[data-theme="dark"] .vg-tooltip table th {
     font-size: 2.2rem !important; 
     margin-bottom: 10px !important;
   }
+  
+  /* Safe Mobile Image Fix (Padded Canvas Method) */
   .card img {
-    max-height: 140px !important; 
-    object-fit: cover !important;
+    height: 200px !important; 
+    width: 100% !important;
+    object-fit: contain !important; 
+    background-color: #ffffff !important; 
+    padding: 1.25rem !important; 
+    border-bottom: 1px solid #333 !important; 
   }
 
   /* 4. Light/Dark Mode Toggle Blue Bar Fix */

@@ -1,5 +1,5 @@
 ---
-name: AI-Powered Multi-Lingual Classroom Translator
+name: AI-Powered Classroom Translator
 tools: [Audio Processing, Open Sourced Model]
 description: A free audio transcription and translation web app built for immigrant students in Tijuana.
 image: assets/pngs/whisper.png # Placeholder: Replace with a screenshot of your app!
@@ -8,7 +8,9 @@ image: assets/pngs/whisper.png # Placeholder: Replace with a screenshot of your 
 ### Overview
 
 ---
-In collaboration with the [LAS Global Leaders Program](https://las.illinois.edu/resources/international/globallearning/leaders), I worked with Tijuana’s education department to support immigrant middle school students. To help bridge language barriers between students and faculty, I developed and deployed a free AI-powered translation web app that transcribes and translates live or recorded audio between English, Spanish, and Haitian Creole.
+In collaboration with the [LAS Global Leaders Program](https://las.illinois.edu/resources/international/globallearning/leaders), I worked with Tijuana’s education department to support immigrant middle school students. 
+
+To help bridge language barriers between students and faculty, I developed a free AI-powered translation web app that transcribes and translates live or recorded audio between English, Spanish, and Haitian Creole.
 
 
 

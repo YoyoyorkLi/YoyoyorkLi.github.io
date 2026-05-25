@@ -509,13 +509,14 @@ html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #v
   .timeline .card-body, .timeline-panel { padding: 1.25rem !important; }
   .timeline p, .timeline ul, .timeline li { font-size: 0.95rem !important; line-height: 1.4 !important; margin-bottom: 0.5rem !important; }
   .timeline-badge { width: 40px !important; height: 40px !important; line-height: 40px !important; font-size: 1.2rem !important; }
-  /* 3. Project Card Text Scaling */
+  /* 3. Project Card Text Scaling & Safe Image Fix */
   .card { margin-bottom: 1rem !important; }
   .card-body { padding: 1rem !important; }
   .card-text, .card-body p { font-size: 0.9rem !important; line-height: 1.3 !important; margin-bottom: 0.75rem !important; }
   .card-body .badge, .card-body .tag { font-size: 0.75rem !important; padding: 0.35em 0.5em !important; margin-bottom: 0.25rem !important; }
   .card i[class*="fa-"], .card i.fas, .card i.fab { font-size: 2.2rem !important; margin-bottom: 10px !important; }
-  .card img { max-height: 140px !important; object-fit: cover !important; }
+  /* Safe Mobile Image Fix (Padded Canvas Method) */
+  .card img { height: 200px !important; width: 100% !important; object-fit: contain !important; background-color: #ffffff !important; padding: 1.25rem !important; border-bottom: 1px solid #333 !important; }
   /* 4. Light/Dark Mode Toggle Blue Bar Fix */
   .navbar-nav .nav-item:last-child { border: none !important; border-bottom: none !important; box-shadow: none !important; }
   #theme-toggle { border: none !important; border-bottom: none !important; box-shadow: none !important; text-decoration: none !important; background: transparent !important; }
