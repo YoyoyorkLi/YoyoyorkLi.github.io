@@ -47,7 +47,9 @@ footer a {
     max-width: 800px;   
     height: auto; 
     max-height: 60vh;
-    object-position: center; 
+    object-position: center;
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -128,6 +130,38 @@ html[data-theme="dark"] .vg-tooltip table th {
 }
 
 /* =========================================
+   Timeline: remove bar, keep card backgrounds
+   ========================================= */
+
+.timeline-body {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.timeline-body::before,
+.timeline-body::after {
+  display: none !important;
+  content: none !important;
+}
+
+.timeline-item {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.timeline-item::before,
+.timeline-item::after {
+  display: none !important;
+  content: none !important;
+}
+
+[class*="timeline"]::before,
+[class*="timeline"]::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* =========================================
    Mobile View Adjustments (Phones Only)
    ========================================= */
 @media (max-width: 767px) {
@@ -144,7 +178,7 @@ html[data-theme="dark"] .vg-tooltip table th {
   h2, .h2 { font-size: 1.45rem !important; }
   h3, .h3 { font-size: 1.25rem !important; }
 
-  /* 2. Experience / Timeline (Safe Original Version) */
+  /* 2. Experience / Timeline */
   .timeline .card-body,
   .timeline-panel {
     padding: 1.25rem !important; 

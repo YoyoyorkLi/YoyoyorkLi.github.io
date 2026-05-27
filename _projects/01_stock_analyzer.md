@@ -8,7 +8,7 @@ image: assets/pngs/stock.png
 ### Overview
 
 ---
-This dashboard pulls and analyzes financial headlines of any stock in the past 7 trading days. 
+This dashboard pulls and analyzes financial headlines of any stock in the past 7 trading days, weighting each headline by recency and sentiment. 
 
 <br>
 ### Try the App!
