@@ -23,12 +23,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Projects">
-  <meta property="og:description" content="Hi there! This is York.  Check out my projects, publications and experiences!">
-  <meta property="og:image" content="/assets/pngs/me.png">
+  <meta property="og:title" content="Stock Sentiment Analyzer">
+  <meta property="og:description" content="A dashboard that pulls and analyzes live financial headlines.">
+  <meta property="og:image" content="assets/pngs/stock.png">
 
-  <title>Projects</title>
-  <meta name="description" content="Hi there! This is York.  Check out my projects, publications and experiences!">
+  <title>Stock Sentiment Analyzer</title>
+  <meta name="description" content="A dashboard that pulls and analyzes live financial headlines.">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -74,63 +74,54 @@
   </div>
 
 </nav>
-    <div class="card-columns m-3 mt-5">
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h3 id="overview">Overview</h3>
 
-  <!-- Local Projects -->
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/01-translator" class="project card text-themed"><img id="ai-powered-classroom-translator-img" class="card-img-top" src="/assets/pngs/whisper.png" alt="AI-Powered Classroom Translator" /><div class="card-body">
-      <h5 id="ai-powered-classroom-translator-name" class="card-title">AI-Powered Classroom Translator
-      </h5>
-      <p id="ai-powered-classroom-translator-desc" class="card-text">A free audio transcription and translation web app built for immigrant students in Tijuana.</p>
-      <p id="ai-powered-classroom-translator-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Audio Processing</span><span class="badge badge-pill text-primary border border-primary ml-1">Open Sourced Model</span></p>
-    </div>
-  </a>
-</div>
+<hr />
+<p>This dashboard pulls and analyzes financial headlines of any stock in the past 7 trading days.</p>
 
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/02-stock-analyzer" class="project card text-themed"><img id="stock-sentiment-analyzer-img" class="card-img-top" src="/assets/pngs/stock.png" alt="Stock Sentiment Analyzer" /><div class="card-body">
-      <h5 id="stock-sentiment-analyzer-name" class="card-title">Stock Sentiment Analyzer
-      </h5>
-      <p id="stock-sentiment-analyzer-desc" class="card-text">A dashboard that pulls and analyzes live financial headlines.</p>
-      <p id="stock-sentiment-analyzer-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Natural Language Processing</span></p>
-    </div>
-  </a>
-</div>
+<p><br /></p>
+<h3 id="try-the-app">Try the App!</h3>
 
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/bigfoot" class="project card text-themed"><img id="interactive-bigfoot-sighting-plot-img" class="card-img-top" src="/assets/pngs/bigfoot.png" alt="Interactive Bigfoot Sighting Plot" /><div class="card-body">
-      <h5 id="interactive-bigfoot-sighting-plot-name" class="card-title">Interactive Bigfoot Sighting Plot
-      </h5>
-      <p id="interactive-bigfoot-sighting-plot-desc" class="card-text">Bigfoot sightings in the U.S filtered by state, visibility and more!</p>
-      <p id="interactive-bigfoot-sighting-plot-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Data Visualization</span><span class="badge badge-pill text-primary border border-primary ml-1">Interactivity</span></p>
-    </div>
-  </a>
-</div>
+<p><em>(If the Space is sleeping, click “Restart Space” to wake it up!)</em></p>
 
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/illinois-lobbying" class="project card text-themed"><img id="interactive-lobbying-entities-in-illinois-img" class="card-img-top" src="/assets/pngs/lobby.png" alt="Interactive Lobbying Entities in Illinois" /><div class="card-body">
-      <h5 id="interactive-lobbying-entities-in-illinois-name" class="card-title">Interactive Lobbying Entities in Illinois
-      </h5>
-      <p id="interactive-lobbying-entities-in-illinois-desc" class="card-text">Lobbying Entities in the State of Illinois and Their Clients!</p>
-      <p id="interactive-lobbying-entities-in-illinois-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Data Visualization</span><span class="badge badge-pill text-primary border border-primary ml-1">Interactivity</span></p>
-    </div>
-  </a>
-</div>
+<iframe id="gradio-app" src="https://yoyoyork-stock-headline-analyzer.hf.space" frameborder="0" width="100%" height="500"></iframe>
 
+<script>
+  // 1. Grab the iframe using the assigned ID
+  const iframe = document.getElementById('gradio-app');
+  // 2. Point to the correct stock analyzer URL
+  const baseUrl = "https://yoyoyork-stock-headline-analyzer.hf.space";
   
+  function syncTheme() {
+    // Checks if your main portfolio site is in dark mode
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const targetUrl = isDark ? baseUrl + "/?__theme=dark" : baseUrl + "/?__theme=light";
+    
+    // Only reload the iframe if the theme actually changed
+    if (iframe.src !== targetUrl) {
+      iframe.src = targetUrl;
+    }
+  }
 
+  // Run immediately on page load
+  syncTheme();
 
+  // Watch the portfolio site's HTML tag for theme toggles
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        syncTheme();
+      }
+    });
+  });
 
+  observer.observe(document.documentElement, { attributes: true });
+</script>
 
-  <!-- Remote Projects -->
-  
+<hr />
 
-  
-
-  
 </div>
-
-
   </main>
   <footer class="mt-auto py-3 text-center">
 

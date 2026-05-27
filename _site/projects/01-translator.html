@@ -125,23 +125,6 @@
 
 <hr />
 
-<h3 id="technical-implementation">Technical Implementation</h3>
-
-<ul>
-  <li>
-    <p><strong>Interface:</strong> Built a light-weight front-end using <strong>Gradio</strong>, allowing users to easily switch input languages, record directly from their microphone, or upload audio files.</p>
-  </li>
-  <li>
-    <p><strong>Transcription:</strong> Leveraged <strong><code class="language-plaintext highlighter-rouge">faster-whisper</code></strong> for speech-to-text. By using the <code class="language-plaintext highlighter-rouge">small</code> model with <code class="language-plaintext highlighter-rouge">int8</code> quantization, the application runs on lower memory usage and latency, allowing it to perform fast inference on a CPU.</p>
-  </li>
-  <li>
-    <p><strong>Translation:</strong> Integrated the <strong><code class="language-plaintext highlighter-rouge">deep_translator</code></strong> to transcribe text into the two target languages simultaneously while maintaining a log of the conversation across all three languages.</p>
-  </li>
-  <li>
-    <p><strong>Deployment:</strong> Hosted the live application via <strong>Hugging Face Spaces</strong>, utilizing a completely free deployment pipeline to deliver the tool to end-users without costs.</p>
-  </li>
-</ul>
-
 </div>
   </main>
   <footer class="mt-auto py-3 text-center">

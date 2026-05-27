@@ -63,13 +63,3 @@ To help bridge language barriers between students and faculty, I developed a fre
 </script>
 
 ---
-
-### Technical Implementation
-
-* **Interface:** Built a light-weight front-end using **Gradio**, allowing users to easily switch input languages, record directly from their microphone, or upload audio files.
-
-* **Transcription:** Leveraged **`faster-whisper`** for speech-to-text. By using the `small` model with `int8` quantization, the application runs on lower memory usage and latency, allowing it to perform fast inference on a CPU.
-
-* **Translation:** Integrated the **`deep_translator`** to transcribe text into the two target languages simultaneously while maintaining a log of the conversation across all three languages.
-
-* **Deployment:** Hosted the live application via **Hugging Face Spaces**, utilizing a completely free deployment pipeline to deliver the tool to end-users without costs.
