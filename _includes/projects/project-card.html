@@ -1,4 +1,4 @@
-<div class="wow animated fadeIn" data-wow-delay=".15s">
+<div class="wow animated fadeIn h-100" data-wow-delay=".15s">
   <a href="{{ project_url }}" class="project card text-themed" {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
     {%- if project_img -%}
     <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}" />
@@ -11,7 +11,7 @@
         {{ project_name }}
       </h5>
       <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
-      <p id="{{ project_id }}-tools" class="card-text">
+      <p id="{{ project_id }}-tools" class="card-text tools-row">
         {%- for tool in project_tools -%}
         <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
         {%- endfor -%}

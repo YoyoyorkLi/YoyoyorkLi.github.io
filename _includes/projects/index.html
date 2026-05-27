@@ -1,4 +1,4 @@
-<div class="card-columns m-3 mt-5">
+<div class="row row-cols-1 row-cols-md-3 g-4 m-3 mt-5">
 
   <!-- Local Projects -->
   {% for project in site.projects %}
@@ -9,10 +9,8 @@
     {%- if project.external_img -%}
       {%- assign project_img = project.external_image -%}
     {%- else -%}
-      {%- assign u = project.image | split: "projects/" -%}
-      {%- assign project_img = {{u[0]}} | relative_url -%}
-  {%- endif -%}
-  
+      {%- assign project_img = project.image | relative_url -%}
+    {%- endif -%}
 
     {%- assign project_name  = project.name -%}
     {%- assign project_desc  = project.description -%}
@@ -26,12 +24,11 @@
       {%- assign external    = false -%}
     {%- endif -%}
 
-    {% include projects/project-card.html %}
+    <div class="col">
+      {% include projects/project-card.html %}
+    </div>
 
   {% endfor %}
-
-
-
 
   <!-- Remote Projects -->
   {% for remote_project in page.remote_projects %}
@@ -59,7 +56,9 @@
         {%- assign project_tools = project.topics -%}
         {%- assign external      = true -%}
 
-        {% include projects/project-card.html %}
+        <div class="col">
+          {% include projects/project-card.html %}
+        </div>
 
       {%- endif -%}
 

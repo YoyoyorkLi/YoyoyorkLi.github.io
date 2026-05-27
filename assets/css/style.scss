@@ -75,22 +75,56 @@ html[data-theme="dark"] .vg-tooltip table th {
   color: #212529 !important;
 }
 
-/* --- Universal Project Cards (Minimalist & Safe) --- */
-.row > [class*="col"] > a {
-  display: block !important;
+/* =========================================
+   Universal Project Cards
+   ========================================= */
+
+/* Bootstrap col becomes a flex column so the wow div can stretch */
+.row > [class*="col"] {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* WOW wrapper is a flex passthrough — fills the column height */
+.row > [class*="col"] > .wow {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Card fills the wow wrapper fully */
+.project.card {
+  display: flex !important;
+  flex-direction: column !important;
   height: 100% !important;
   text-decoration: none !important;
 }
 
-.card {
-  height: 100% !important;
+/* Fixed-height image so every card image is the same size */
+.project.card .card-img-top {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  flex-shrink: 0 !important;
 }
 
-.card img {
-  width: 100% !important;
-  height: 220px !important;
-  object-fit: cover !important; 
-  object-position: center !important; 
+/* Card body grows to push badge row to the bottom */
+.project.card .card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
+/* Description stretches to fill available space */
+.project.card .card-body [id$="-desc"] {
+  flex: 1 1 auto !important;
+}
+
+/* Badge/tools row stays pinned at the bottom */
+.project.card .card-body .tools-row {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
 }
 
 /* =========================================
@@ -129,7 +163,7 @@ html[data-theme="dark"] .vg-tooltip table th {
     font-size: 1.2rem !important;
   }
 
-  /* 3. Project Card Text Scaling & Safe Image Fix */
+  /* 3. Project Card Text Scaling */
   .card {
     margin-bottom: 1rem !important;
   }
@@ -155,13 +189,12 @@ html[data-theme="dark"] .vg-tooltip table th {
     margin-bottom: 10px !important;
   }
   
-  /* Safe Mobile Image Fix (Padded Canvas Method) */
-  .card img {
-    height: 200px !important; 
-    width: 100% !important;
+  /* Mobile Image Fix — padded canvas so odd-ratio images don't crop badly */
+  .project.card .card-img-top {
+    height: 180px !important;
     object-fit: contain !important; 
     background-color: #ffffff !important; 
-    padding: 1.25rem !important; 
+    padding: 1rem !important; 
     border-bottom: 1px solid #333 !important; 
   }
 
