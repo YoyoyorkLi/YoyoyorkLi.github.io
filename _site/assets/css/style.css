@@ -471,9 +471,9 @@ body { font-family: "Poppins", sans-serif; }
 
 /* ========================================= Custom Homepage Styles ========================================= */
 /* --- Bio Text --- */
-.bio-text { color: #212529; font-size: 1rem; }
+.bio-text { color: #212529; font-size: 1rem; margin-top: 2rem; text-align: center; }
 
-@media (min-width: 768px) { .bio-text { font-size: 1.3rem; max-width: 700px; margin: 0 auto; line-height: 1.6; } }
+@media (min-width: 768px) { .bio-text { font-size: 1.3rem; max-width: 560px; margin: 2rem auto 0; line-height: 1.6; text-align: center; } }
 html[data-theme="dark"] .bio-text { color: #ffffff !important; }
 
 /* --- Footer Settings --- */
@@ -493,37 +493,42 @@ html[data-theme="dark"] #vg-tooltip-element table tr:nth-child(even), html[data-
 html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #vg-tooltip-element .markdown-body table:not(.highlight) th, .markdown-body html[data-theme="dark"] #vg-tooltip-element table:not(.highlight) th, html[data-theme="dark"] .vg-tooltip table td, html[data-theme="dark"] .vg-tooltip .markdown-body table:not(.highlight) th, .markdown-body html[data-theme="dark"] .vg-tooltip table:not(.highlight) th, html[data-theme="dark"] #vg-tooltip-element table th, html[data-theme="dark"] .vg-tooltip table th { color: #212529 !important; }
 
 /* ========================================= Universal Project Cards ========================================= */
-/* Bootstrap col becomes a flex column so the wow div can stretch */
 .row > [class*="col"] { display: flex !important; flex-direction: column !important; }
 
-/* WOW wrapper is a flex passthrough — fills the column height */
 .row > [class*="col"] > .wow { flex: 1 1 auto !important; display: flex !important; flex-direction: column !important; }
 
-/* Card fills the wow wrapper fully */
 .project.card { display: flex !important; flex-direction: column !important; height: 100% !important; text-decoration: none !important; }
 
-/* Fixed-height image so every card image is the same size */
 .project.card .card-img-top { width: 100% !important; height: 200px !important; object-fit: cover !important; object-position: center !important; flex-shrink: 0 !important; }
 
-/* Card body grows to push badge row to the bottom */
 .project.card .card-body { display: flex !important; flex-direction: column !important; flex: 1 1 auto !important; }
 
-/* Description stretches to fill available space */
 .project.card .card-body [id$="-desc"] { flex: 1 1 auto !important; }
 
-/* Badge/tools row stays pinned at the bottom */
 .project.card .card-body .tools-row { margin-top: auto !important; margin-bottom: 0 !important; }
 
 /* ========================================= Timeline: remove bar, keep card backgrounds ========================================= */
-.timeline-body { border-left: none !important; padding-left: 0 !important; }
+.timeline-body { border-left: none !important; padding-left: 0 !important; border-radius: 0 !important; }
 
 .timeline-body::before, .timeline-body::after { display: none !important; content: none !important; }
 
-.timeline-item { border-left: none !important; padding-left: 0 !important; }
+.timeline-item { border-left: none !important; padding-left: 0 !important; border-radius: 0 !important; }
 
 .timeline-item::before, .timeline-item::after { display: none !important; content: none !important; }
 
+.timeline-item .content { border-radius: 0 !important; }
+
 [class*="timeline"]::before, [class*="timeline"]::after { display: none !important; content: none !important; }
+
+/* --- Experiences Page Tweaks --- */
+.col h2 { margin-bottom: 1rem !important; margin-top: 0 !important; }
+
+.col.mt-4 { margin-top: 0.5rem !important; }
+
+/* ========================================= Single Page Scroll (for future landing page) ========================================= */
+section[id] { scroll-margin-top: 70px; }
+
+.section-divider { margin: 4rem 0; border: none; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 
 /* ========================================= Mobile View Adjustments (Phones Only) ========================================= */
 @media (max-width: 767px) { /* 1. Publication & General Headers */
@@ -541,7 +546,7 @@ html[data-theme="dark"] #vg-tooltip-element table td, html[data-theme="dark"] #v
   .card-text, .card-body p { font-size: 0.9rem !important; line-height: 1.3 !important; margin-bottom: 0.75rem !important; }
   .card-body .badge, .card-body .tag { font-size: 0.75rem !important; padding: 0.35em 0.5em !important; margin-bottom: 0.25rem !important; }
   .card i[class*="fa-"], .card i.fas, .card i.fab { font-size: 2.2rem !important; margin-bottom: 10px !important; }
-  /* Mobile Image Fix — padded canvas so odd-ratio images don't crop badly */
+  /* Mobile Image Fix */
   .project.card .card-img-top { height: 180px !important; object-fit: contain !important; background-color: #ffffff !important; padding: 1rem !important; border-bottom: 1px solid #333 !important; }
   /* 4. Light/Dark Mode Toggle Blue Bar Fix */
   .navbar-nav .nav-item:last-child { border: none !important; border-bottom: none !important; box-shadow: none !important; }

@@ -7,8 +7,9 @@
 ### Site Settings ###
 title: York Li
 description: >-
-                      Hi there! This is York. 
-                      Check out my projects, publications and experiences!
+                      Hi there! This is York. I am a senior at UIUC studying information sciences. 
+
+                      I visualize data, build with ML tools, and occasionally publish papers. 
 
 baseurl: ""   # Change to empty quotes if you are hosting your site at <your-username>.github.io directly,
 #                                             otherwise will be hosted at <your-username>.github.io/{{base_url}}
