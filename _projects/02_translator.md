@@ -12,7 +12,7 @@ To help bridge language barriers between students and faculty, I developed a fre
 ### Try the App!
 *(If the Space is sleeping, click the link below to wake it up, then reload this page.)*
 
-<a href="https://yoyoyork-on-demand-spanish-translator.hf.space" target="_blank">▶ Open / Wake the Space</a>
+<a href="https://yoyoyork-on-demand-spanish-translator.hf.space" target="_blank"> Open / Wake the Space</a>
 
 <div style="width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #888; margin-bottom: 30px;">
 <iframe

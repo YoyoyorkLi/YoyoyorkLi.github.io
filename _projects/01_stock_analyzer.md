@@ -11,7 +11,7 @@ This dashboard pulls and analyzes financial headlines of any stock in the past 7
 ### Try the App!
 *(If the Space is sleeping, click the link below to wake it up, then reload this page.)*
 
-<a href="https://yoyoyork-stock-headline-analyzer.hf.space" target="_blank">▶ Open / Wake the Space</a>
+<a href="https://yoyoyork-stock-headline-analyzer.hf.space" target="_blank"> Open / Wake the Space</a>
 
 <iframe
 id="gradio-app"
