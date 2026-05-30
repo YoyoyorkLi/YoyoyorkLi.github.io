@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Experiences
-permalink: /about/
+permalink: /experiences/
 weight: 3
 ---
 
