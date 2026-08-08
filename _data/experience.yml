@@ -3,13 +3,15 @@
   url: "https://www.ajg.com" 
   logo: "/assets/pngs/ajg_logo.png"
   subtitle: "June 2026 — August 2026"
+  description: "<ul style='padding-left: 20px; margin-bottom: 0;'><li>Developed 2 internal applications converting natural language into SQL queries with a sandboxed LLM and dynamic filters, allowing non-technical users self-serve complex SQL pulls on Snowflake.</li><li>Engineered features using external data from APIs(FRED) and internal claims/loss records for multiple ML models.</li></ul>"
+
  
 - title: "Data Scientist Intern"
   company: "Pandora Bio"
   url: "https://pandorabio.com" 
   logo: "/assets/pngs/pandora_logo.png"
   subtitle: "Jan 2026 — May 2026"
-  description: "<ul style='padding-left: 20px; margin-bottom: 0;'><li>Cleaned, joined, and engineered features from 10+ datasets using Python.</li><li>Built mixed-effect regression models in R and leveraged AWS EC2 to execute Hugging Face models on ~6,000 audio files.</li><li>Co-authored peer-reviewed papers currently under review in Affective Science and JMIR.</li></ul>"
+  description: "<ul style='padding-left: 20px; margin-bottom: 0;'><li>Co-authored peer-reviewed papers currently under review in JMIR(Journal of Medical Internet Research).</li><li>Engineered features from 10+ datasets using Python, wrangling data to construct analysis-ready datasets. Built mixed-effect regression models in R to identify statistical trends.</li><li>Leveraged AWS EC2 and GitHub to execute Hugging Face models, extracting new features from ~6,000 audio files.</li></ul>"
 
 - title: "Data Science/Student Ambassador Intern"
   company: "Pandora Bio"
