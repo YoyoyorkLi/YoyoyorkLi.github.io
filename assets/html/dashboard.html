@@ -6,14 +6,22 @@
 <title>Inflation Pressure Index</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
-  :root { 
+:root { 
     --bg:#ffffff; --card:#f8f9fa; --line:#e5e7eb;
     --ink:#111827; --dim:#6b7280; --hot:#ef4444; --cool:#3b82f6; --good:#22c55e;
     --hot-bg:rgba(239,68,68,0.12); --cool-bg:rgba(59,130,246,0.12);
   }
   
+  /* 1. Listen for the Javascript setting the data-theme attribute */
+  :root[data-theme="dark"] {
+    --bg:#0f1117; --card:#181b24; --line:#262b38;
+    --ink:#e8eaf0; --dim:#9aa3b5; --hot:#ff6b5a; --cool:#4ea8ff; --good:#7ed957;
+    --hot-bg:rgba(255,107,90,.12); --cool-bg:rgba(78,168,255,.10);
+  }
+
+  /* 2. Fallback: If no Javascript override is active, use the system OS preference */
   @media (prefers-color-scheme: dark) {
-    :root { 
+    :root:not([data-theme="light"]) { 
       --bg:#0f1117; --card:#181b24; --line:#262b38;
       --ink:#e8eaf0; --dim:#9aa3b5; --hot:#ff6b5a; --cool:#4ea8ff; --good:#7ed957;
       --hot-bg:rgba(255,107,90,.12); --cool-bg:rgba(78,168,255,.10);
