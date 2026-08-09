@@ -6,22 +6,23 @@
 <title>Inflation Pressure Index</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
-:root { 
+  :root { 
+    color-scheme: light;
     --bg:#ffffff; --card:#f8f9fa; --line:#e5e7eb;
     --ink:#111827; --dim:#6b7280; --hot:#ef4444; --cool:#3b82f6; --good:#22c55e;
     --hot-bg:rgba(239,68,68,0.12); --cool-bg:rgba(59,130,246,0.12);
   }
   
-  /* 1. Listen for the Javascript setting the data-theme attribute */
   :root[data-theme="dark"] {
+    color-scheme: dark;
     --bg:#0f1117; --card:#181b24; --line:#262b38;
     --ink:#e8eaf0; --dim:#9aa3b5; --hot:#ff6b5a; --cool:#4ea8ff; --good:#7ed957;
     --hot-bg:rgba(255,107,90,.12); --cool-bg:rgba(78,168,255,.10);
   }
 
-  /* 2. Fallback: If no Javascript override is active, use the system OS preference */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) { 
+      color-scheme: dark;
       --bg:#0f1117; --card:#181b24; --line:#262b38;
       --ink:#e8eaf0; --dim:#9aa3b5; --hot:#ff6b5a; --cool:#4ea8ff; --good:#7ed957;
       --hot-bg:rgba(255,107,90,.12); --cool-bg:rgba(78,168,255,.10);
@@ -55,9 +56,9 @@
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; /* smooth momentum scrolling on iOS */
     margin-bottom: 12px;
-    padding-bottom: 8px;
+    padding-bottom: 8px; /* space for scrollbar */
   }
   
   .chart-container { 
@@ -70,7 +71,7 @@
   @media (max-width: 768px) { 
     .chart-container { 
         height: 280px; 
-        min-width: 600px; 
+        min-width: 650px; 
     } 
   }
 
@@ -101,7 +102,7 @@
 <div class="sub" id="subtitle"></div>
 
 <div class="gentle-note">
-</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
+  💡 <b>What is this?</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
 </div>
 
 <div class="tabs">
@@ -373,13 +374,14 @@ function detectTheme() {
     let isDark = false;
     try {
         const p = window.parent.document;
-        const htmlClass = p.documentElement.className || "";
-        const bodyClass = p.body.className || "";
-        const htmlTheme = p.documentElement.getAttribute('data-theme') || "";
+        const themeIndicators = (p.documentElement.className || "") + " " + 
+                                (p.body.className || "") + " " +
+                                (p.documentElement.getAttribute('data-theme') || "") + " " +
+                                (p.documentElement.getAttribute('data-mode') || "");
         
-        if (htmlClass.includes('dark') || bodyClass.includes('dark') || htmlTheme === 'dark') {
+        if (themeIndicators.includes('dark')) {
             isDark = true;
-        } else if (htmlClass.includes('light') || bodyClass.includes('light') || htmlTheme === 'light') {
+        } else if (themeIndicators.includes('light')) {
             isDark = false;
         } else {
             isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -397,8 +399,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', det
 
 try {
     const observer = new MutationObserver(detectTheme);
-    observer.observe(window.parent.document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
-    observer.observe(window.parent.document.body, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+    observer.observe(window.parent.document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme', 'data-mode'] });
+    observer.observe(window.parent.document.body, { attributes: true, attributeFilter: ['class', 'data-theme', 'data-mode'] });
 } catch(e) {}
 
 </script>
