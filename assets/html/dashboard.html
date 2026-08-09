@@ -20,17 +20,6 @@
     }
   }
 
-  :root[data-theme="light"] {
-    --bg:#ffffff; --card:#f8f9fa; --line:#e5e7eb;
-    --ink:#111827; --dim:#6b7280; --hot:#ef4444; --cool:#3b82f6; --good:#22c55e;
-    --hot-bg:rgba(239,68,68,0.12); --cool-bg:rgba(59,130,246,0.12);
-  }
-  :root[data-theme="dark"] {
-    --bg:#0f1117; --card:#181b24; --line:#262b38;
-    --ink:#e8eaf0; --dim:#9aa3b5; --hot:#ff6b5a; --cool:#4ea8ff; --good:#7ed957;
-    --hot-bg:rgba(255,107,90,.12); --cool-bg:rgba(78,168,255,.10);
-  }
-
   * { box-sizing:border-box; }
   body { margin:0; padding:28px; background:transparent; color:var(--ink);
          font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
@@ -38,7 +27,6 @@
   .sub { color:var(--dim); font-size:13px; margin-bottom:16px; }
   .gentle-note { background: var(--card); border-left: 4px solid var(--cool); padding: 12px 16px; margin-bottom: 24px; border-radius: 0 6px 6px 0; color: var(--ink); line-height: 1.5; }
   
-  /* Tabs styling */
   .tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
   .tab-btn { background: none; border: none; padding: 8px 0; color: var(--dim); font-size: 15px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.2s; }
   .tab-btn:hover { color: var(--ink); }
@@ -53,12 +41,16 @@
   .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
   .card h2 { font-size:13px; font-weight:600; color:var(--dim); margin:0 0 12px; text-transform:uppercase; letter-spacing:.5px; }
   .card h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--ink); }
+  
+  /* CRITICAL FIX: Fixed height containers for the charts */
+  .chart-container { position: relative; height: 320px; width: 100%; margin-bottom: 12px; }
+  @media (max-width: 600px) { .chart-container { height: 280px; } }
+
   .kpi { font-size:30px; font-weight:600; letter-spacing:-.5px; }
   .kpi small { font-size:13px; font-weight:400; color:var(--dim); margin-left:6px; }
   .up { color:var(--hot); } .down { color:var(--cool); }
   .wide { grid-column:1/-1; } .half { grid-column:span 2; }
   @media (max-width:900px){ .half{ grid-column:1/-1; } }
-  canvas { max-height:320px; }
   table { width:100%; border-collapse:collapse; font-size:13px; }
   th,td { text-align:right; padding:6px 8px; border-bottom:1px solid var(--line); }
   th:first-child,td:first-child { text-align:left; }
@@ -77,7 +69,7 @@
 <div class="sub" id="subtitle"></div>
 
 <div class="gentle-note">
-  <b>What is this?</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
+  💡 <b>What is this?</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
 </div>
 
 <div class="tabs">
@@ -95,19 +87,19 @@
 
     <div class="card wide">
       <h2>Index over time <span class="pill" id="base-pill"></span></h2>
-      <canvas id="c-index"></canvas>
+      <div class="chart-container"><canvas id="c-index"></canvas></div>
       <div class="note" id="index-note"></div>
     </div>
 
     <div class="card wide">
       <h2>Index vs inflation benchmark</h2>
-      <canvas id="c-bench"></canvas>
+      <div class="chart-container"><canvas id="c-bench"></canvas></div>
       <div class="note">The inflation target is held OUT of the index, so this acts as a comparison rather than a restatement of the same numbers.</div>
     </div>
 
     <div class="card half">
       <h2>What moved the index last quarter <span class="pill">index points</span></h2>
-      <canvas id="c-move"></canvas>
+      <div class="chart-container"><canvas id="c-move"></canvas></div>
       <div class="note">Each component's contribution to the most recent quarterly change. Bars sum to the index's move that quarter.</div>
     </div>
 
@@ -119,13 +111,13 @@
 
     <div class="card wide">
       <h2>Contributions over time <span class="pill">index points vs base</span></h2>
-      <canvas id="c-contrib"></canvas>
+      <div class="chart-container"><canvas id="c-contrib"></canvas></div>
       <div class="note">Stacked contributions sum to (index &minus; base). Bars above zero push the index up, below zero pull it down.</div>
     </div>
 
     <div class="card half">
       <h2>Component Breakdown <select id="pick"></select></h2>
-      <canvas id="c-comp"></canvas>
+      <div class="chart-container"><canvas id="c-comp"></canvas></div>
     </div>
 
     <div class="card half">
@@ -272,7 +264,7 @@ function drawComp(col){
     data:{ labels:D.dates, datasets:[{ label:D.labels[col]||col, data:D.series[col],
       borderColor:COOL, backgroundColor:COOL_BG,
       fill:true, tension:.3, pointRadius:0, borderWidth:2 }]},
-    options:{ responsive:true, plugins:{legend:{display:false}},
+    options:{ maintainAspectRatio: false, responsive:true, plugins:{legend:{display:false}},
       scales:{ x:{grid:{color:GRID}}, y:{grid:{color:GRID},title:{display:true,text:"%"}} } }
   });
 }
@@ -295,7 +287,7 @@ function renderCharts() {
     data:{ labels:D.dates, datasets:[{ label:"Index", data:D.series[D.indexCol],
         borderColor:HOT, backgroundColor:HOT_BG,
         fill:true, tension:.3, pointRadius:0, borderWidth:2 }]},
-    options:{ responsive:true, interaction:{mode:"index",intersect:false},
+    options:{ maintainAspectRatio: false, responsive:true, interaction:{mode:"index",intersect:false},
       plugins:{legend:{labels:{boxWidth:12}}},
       scales:{ x:{grid:{color:GRID}}, y:{grid:{color:GRID}} } }
   });
@@ -307,7 +299,7 @@ function renderCharts() {
         tension:.3, pointRadius:0, borderWidth:2, yAxisID:"y" },
       { label:D.targetLabel, data:D.series[D.targetCol], borderColor:COOL,
         tension:.3, pointRadius:0, borderWidth:2, borderDash:[5,4], yAxisID:"y1" }]},
-    options:{ responsive:true, interaction:{mode:"index",intersect:false},
+    options:{ maintainAspectRatio: false, responsive:true, interaction:{mode:"index",intersect:false},
       plugins:{legend:{labels:{boxWidth:12}}},
       scales:{ x:{grid:{color:GRID}},
         y:{position:"left",grid:{color:GRID},title:{display:true,text:"Index"}},
@@ -321,7 +313,7 @@ function renderCharts() {
       datasets:D.components.map((c,i)=>({
         label:(D.labels[c]||c)+(D.signs[c]<0?" (inv)":""),
         data:D.contrib[c], backgroundColor:palette[i%palette.length] }))},
-    options:{ responsive:true, interaction:{mode:"index",intersect:false},
+    options:{ maintainAspectRatio: false, responsive:true, interaction:{mode:"index",intersect:false},
       plugins:{legend:{labels:{boxWidth:12,font:{size:11}}}},
       scales:{ x:{stacked:true,grid:{display:false}},
                y:{stacked:true,grid:{color:GRID},title:{display:true,text:"index points"}} } }
@@ -333,7 +325,7 @@ function renderCharts() {
       data:{ labels:moved.map(r=>D.labels[r.component]||r.component),
         datasets:[{ data:moved.map(r=>r.d1),
           backgroundColor:moved.map(r=>r.d1>=0?HOT:COOL) }]},
-      options:{ indexAxis:"y", responsive:true, plugins:{legend:{display:false}},
+      options:{ maintainAspectRatio: false, indexAxis:"y", responsive:true, plugins:{legend:{display:false}},
         scales:{ x:{grid:{color:GRID},title:{display:true,text:"index points"}},
                  y:{grid:{display:false}} } }
     });
