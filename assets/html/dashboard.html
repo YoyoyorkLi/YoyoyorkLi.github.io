@@ -38,26 +38,50 @@
   .banner { border-radius:8px; padding:10px 14px; margin-bottom:18px; font-size:13px; border:1px solid; background:rgba(126, 217, 87, 0.1); border-color:var(--good); color:var(--good); }
   .banner.warn { background:rgba(255, 161, 74, 0.1); border-color:#ffa14a; color:#ffa14a; }
   .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; overflow: hidden; }
   .card h2 { font-size:13px; font-weight:600; color:var(--dim); margin:0 0 12px; text-transform:uppercase; letter-spacing:.5px; }
   .card h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--ink); }
   
-  /* CRITICAL FIX: Fixed height containers for the charts */
-  .chart-container { position: relative; height: 320px; width: 100%; margin-bottom: 12px; }
-  @media (max-width: 600px) { .chart-container { height: 280px; } }
+  /* CRITICAL FIX: Swipeable Horizontal Scrolling Containers */
+  .chart-scroller {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .chart-container { 
+    position: relative; 
+    height: 320px; 
+    width: 100%; 
+  }
+  
+  /* On mobile screens, force the chart width wider than the screen to trigger scroll */
+  @media (max-width: 768px) { 
+    .chart-container { 
+        height: 280px; 
+        min-width: 600px; 
+    } 
+  }
 
   .kpi { font-size:30px; font-weight:600; letter-spacing:-.5px; }
   .kpi small { font-size:13px; font-weight:400; color:var(--dim); margin-left:6px; }
   .up { color:var(--hot); } .down { color:var(--cool); }
   .wide { grid-column:1/-1; } .half { grid-column:span 2; }
   @media (max-width:900px){ .half{ grid-column:1/-1; } }
-  table { width:100%; border-collapse:collapse; font-size:13px; }
+  
+  /* Make data tables scrollable on mobile too */
+  .table-scroller { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width:100%; border-collapse:collapse; font-size:13px; min-width: 400px; }
   th,td { text-align:right; padding:6px 8px; border-bottom:1px solid var(--line); }
   th:first-child,td:first-child { text-align:left; }
   th { color:var(--dim); font-weight:500; }
+  
   .note { color:var(--dim); font-size:12px; margin-top:10px; line-height:1.6; }
   .pill { display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px; background:var(--line); color:var(--dim); margin-left:6px; }
-  select { background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:13px; outline:none; }
+  select { background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:13px; outline:none; max-width: 100%; }
   
   ul { line-height: 1.6; margin-top: 4px; color: var(--dim); }
   li { margin-bottom: 8px; }
@@ -69,7 +93,7 @@
 <div class="sub" id="subtitle"></div>
 
 <div class="gentle-note">
-  💡 <b>What is this?</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
+</b> This dashboard maps out the underlying factors that pressure and contribute to inflation. It is designed to help understand and analyze current economic conditions, rather than acting as a predictive crystal ball for future rates.
 </div>
 
 <div class="tabs">
@@ -87,42 +111,42 @@
 
     <div class="card wide">
       <h2>Index over time <span class="pill" id="base-pill"></span></h2>
-      <div class="chart-container"><canvas id="c-index"></canvas></div>
+      <div class="chart-scroller"><div class="chart-container"><canvas id="c-index"></canvas></div></div>
       <div class="note" id="index-note"></div>
     </div>
 
     <div class="card wide">
       <h2>Index vs inflation benchmark</h2>
-      <div class="chart-container"><canvas id="c-bench"></canvas></div>
+      <div class="chart-scroller"><div class="chart-container"><canvas id="c-bench"></canvas></div></div>
       <div class="note">The inflation target is held OUT of the index, so this acts as a comparison rather than a restatement of the same numbers.</div>
     </div>
 
     <div class="card half">
       <h2>What moved the index last quarter <span class="pill">index points</span></h2>
-      <div class="chart-container"><canvas id="c-move"></canvas></div>
+      <div class="chart-scroller"><div class="chart-container"><canvas id="c-move"></canvas></div></div>
       <div class="note">Each component's contribution to the most recent quarterly change. Bars sum to the index's move that quarter.</div>
     </div>
 
     <div class="card half">
       <h2>Attribution <span class="pill" id="attr-pill"></span></h2>
-      <table id="t-attr"><tbody></tbody></table>
+      <div class="table-scroller"><table id="t-attr"><tbody></tbody></table></div>
       <div class="note">Exact decomposition &mdash; contributions sum to (index &minus; base). <b>Now</b> is cumulative since the base quarter; <b>1Q</b> and <b>4Q</b> are the change over those windows.</div>
     </div>
 
     <div class="card wide">
       <h2>Contributions over time <span class="pill">index points vs base</span></h2>
-      <div class="chart-container"><canvas id="c-contrib"></canvas></div>
+      <div class="chart-scroller"><div class="chart-container"><canvas id="c-contrib"></canvas></div></div>
       <div class="note">Stacked contributions sum to (index &minus; base). Bars above zero push the index up, below zero pull it down.</div>
     </div>
 
     <div class="card half">
       <h2>Component Breakdown <select id="pick"></select></h2>
-      <div class="chart-container"><canvas id="c-comp"></canvas></div>
+      <div class="chart-scroller"><div class="chart-container"><canvas id="c-comp"></canvas></div></div>
     </div>
 
     <div class="card half">
       <h2>Latest quarter data</h2>
-      <table id="t-latest"><tbody></tbody></table>
+      <div class="table-scroller"><table id="t-latest"><tbody></tbody></table></div>
     </div>
   </div>
 </div>
