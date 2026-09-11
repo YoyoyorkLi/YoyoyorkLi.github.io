@@ -6,9 +6,11 @@ image: assets/pngs/whoop.png
 ---
 ### Overview
 ---
-My Fitbit's Google Health app only shows raw numbers, so I built my own web app, with a strain score, a recovery score, and a sleep score, computed nightly and stored in a Postgres backend behind an installable PWA modeled on WHOOP's own Day / Workouts / Drinks / Trends layout.
+My Fitbit's Google Health app only shows raw numbers with bad UI, so I built my own web app.
 
-My app also tracks how alcohol shows up in next-morning HRV and recovery.
+The app provides a strain, recovery, and a sleep score, computed nightly and stored in a Postgres backend behind an installable PWA modeled on WHOOP's own Day / Workouts / Drinks / Trends layout.
+
+The app also tracks how alcohol shows up in next-morning HRV and recovery.
 
 ### Live Demo
 *(Synthetic data — sign-in is disabled for this demo.)*
