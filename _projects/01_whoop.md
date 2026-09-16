@@ -1,18 +1,18 @@
 ---
 name: Turning My Fitbit Air Into WHOOP
-tools: [PostgreSQL, Data Visualization]
+tools: [PostgreSQL, Data Pipeline]
 description: Upgrading my Google Fitbit Air Into WHOOP with custom metrics and a Postgres Backend.
 image: assets/pngs/whoop.png
 ---
 ### Overview
 ---
-My Fitbit's Google Health app only shows raw numbers with bad UI, so I built my own web app.
+My Fitbit's Google Health app only shows raw numbers with medicore UI, so I built my own web app.
 
-The app provides a strain, recovery, and a sleep score, computed nightly and stored in a Postgres backend behind an installable PWA modeled on WHOOP's own Day / Workouts / Drinks / Trends layout.
+The app provides a clear strain, recovery, and a sleep score, computed nightly and stored in a Postgres backend. The installable PWA shows Day / Workouts / Drinks / Trends layout.
 
-The app also tracks how alcohol shows up in next-morning HRV and recovery.
+The app also tracks how alcohol affects next-morning sleep and recovery. See GitHub repo [here](https://github.com/YoyoyorkLi/fitbitair-pwa).
 
-### Live Demo
+### Demo
 *(Synthetic data — sign-in is disabled for this demo.)*
 
 <div style="width: 100%; overflow: auto; -webkit-overflow-scrolling: touch;">
