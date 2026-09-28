@@ -18,7 +18,7 @@ The app also tracks how alcohol affects next-morning sleep and recovery. See Git
 <div style="width: 100%; overflow: auto; -webkit-overflow-scrolling: touch;">
   <iframe
     src="{{ site.baseurl }}/assets/html/preview.html?demo=1"
-    style="width: 100%; min-width: 100%; height: 1400px; min-height: 1400px; border: none; display: block;"
+    style="width: 100%; min-width: 100%; height: min(820px, 80vh); min-height: 520px; border: none; display: block;"
     title="Pulse — Recovery Dashboard">
   </iframe>
 </div>
