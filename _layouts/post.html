@@ -5,9 +5,13 @@ layout: page
 <header class="mb-5 pb-4 border-bottom">
   <h2 class="mb-3" style="font-weight: 700; line-height: 1.3;">{{ page.title }}</h2>
 
-  {% if page.journal %}
+  {% if page.paper_url %}
   <h5 class="mb-3" style="font-weight: 500; opacity: 0.9;">
-    {{ page.status }} 
+    <a href="{{ page.paper_url }}" target="_blank" rel="noopener" class="text-primary text-decoration-none">View paper</a>
+  </h5>
+  {% elsif page.journal %}
+  <h5 class="mb-3" style="font-weight: 500; opacity: 0.9;">
+    {{ page.status }}
     {% if page.journal_url %}
       <a href="{{ page.journal_url }}" target="_blank" class="text-primary text-decoration-none">{{ page.journal }}</a>
     {% else %}
